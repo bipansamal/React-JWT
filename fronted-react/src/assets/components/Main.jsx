@@ -14,7 +14,6 @@ const Main = () =>{
 
             </div>
         </div>
-      
       </>
     )
 }
