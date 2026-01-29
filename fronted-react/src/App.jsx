@@ -1,24 +1,29 @@
-import { useState } from 'react'
-import './assets/css/style.css'
-import Main from './assets/components/Main'
-import Register from './assets/components/Register'
-import Header from './assets/components/Header'
-import Footer from './assets/components/Footer'
-import { BrowserRouter, Routes, Route} from "react-router-dom"
+import "./assets/css/style.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import AuthProvider from "./AuthProvider";
+import Header from "./assets/components/Header";
+import Footer from "./assets/components/Footer";
+import Main from "./assets/components/Main";
+import Login from "./assets/components/Login";
+import Register from "./assets/components/Register";
+
 function App() {
   return (
-    <>
-    <BrowserRouter>
-    <Header/>
-      <Routes>
-        <Route path='/' element={<Main/>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<login />} />
-      </Routes>
-    <Footer/>
-    </BrowserRouter>
-    </>
-  )
+    <AuthProvider>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
